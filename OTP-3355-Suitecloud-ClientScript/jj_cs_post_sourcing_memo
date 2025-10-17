@@ -1,0 +1,22 @@
+/**
+ * @NApiVersion 2.x
+ * @NScriptType ClientScript
+ */
+define([], function() {
+
+    function postSourcing(context) {
+        if (context.fieldId === 'entity') {
+            let currentRecord = context.currentRecord;
+            let customerId = currentRecord.getValue({ fieldId: 'entity' });
+
+            if (customerId == 44) {
+                currentRecord.setValue({
+                    fieldId: 'memo',
+                    value: 'Special memo'
+                });
+            }
+        }
+    }
+
+    return { postSourcing: postSourcing };
+}); 
